@@ -1,0 +1,90 @@
+<div id="desktop-view-links">
+<div class="desktop-label options-menu" title="Click for options...">
+    <a href="/{{ username }}/" onclick="return show_menu('options');">Options</a>
+</div>
+{% if allow_edit %}
+<div class="desktop-label edit">
+    <a href="/{{ username }}/{{ desktop_slug }}/edit/?dialog=new-icon">Add site</a>
+</div>
+{% endif -%}
+
+<div class="desktop-label user-label" id="desktoplink-default" title="View this desktop">
+    <a href="/{{ username }}/">{{ username }}'s desktop</a>
+</div>
+
+<div class="desktop-labels-list">
+{% for dt in desktops -%}
+    {% if dt.name!='default' -%}
+    <div class="desktop-label desktop-link{% if dt.private %} private{% endif %}" id="desktoplink-{{ dt.slug }}">
+        <a href="{{ dt.url }}" title="View this desktop">
+            {{ dt.name }}
+        </a>
+    </div>
+    {% endif -%}
+{% endfor -%}
+{% if allow_edit -%}
+    <div class="desktop-label quick-add-desktop"
+         onclick="on_menu_click('create-desktop'); return false;"
+         title="Create a new desktop of links">
+        <a href="create-new" onclick="return false">Add</a>
+    </div>
+{% endif -%}
+</div>
+
+<div class="menu invisible" id="menu_options">
+
+    <ul>
+        {% if test_account -%}
+        <li style="padding:10px;"><p style="color:#666;">This is a <i>test</i> account. You may edit this desktop,<br/>but you will not be able to save changes.</p></li>
+        <li class="edit-desktop"><a href="/{{ username }}/{{ desktop_slug }}/edit/" title="Re-arrange the icons on this desktop">Edit this Desktop</a></li>
+        <li class="divider"></li>
+        {% endif %}
+        {% if allow_edit -%}
+        <li class="edit-desktop"><a href="/{{ username }}/{{ desktop_slug }}/edit/" title="Re-arrange the icons on this desktop">Edit this Desktop</a></li>
+        <li class="add-desktop"><a href="create-new" onclick="on_menu_click('create-desktop'); return false;" title="Create a new desktop of links">Create a New Desktop...</a></li>        
+        <li class="delete-desktop{% if desktop_slug=="default" %} disabled{% endif %}"><a href="delete-desktop" onclick="on_menu_click('delete-desktop'); return false;" title="Delete this desktop and all the icons">Delete this Desktop...</a></li>
+        <li class="rename-desktop{% if desktop_slug=="default" %} disabled{% endif %}"><a href="rename" onclick="on_menu_click('rename-desktop'); return false;" title="Rename this desktop">Rename this desktop...</a></li>
+<!--[if IE]>
+<li class="about"><a href="make-home" onclick="on_menu_click('make-homepage'); return false;">Make this my default homepage</a></li>
+<![endif]-->
+
+        <li class="divider"></li>
+
+        <li class="desktop-setting{% if desktop_slug=="default" %} disabled{% endif %}">
+            <a class="{% if desktop_settings.private %}on{% else %}off{% endif %}"
+            href="private" onclick="on_menu_click('toggle-private');return false;" title="A private desktop is only visible by you (when logged in)">Private Desktop</a>
+        </li>
+        <li class="divider"></li>
+
+        {% else -%}
+        {% if request.user.is_authenticated() -%}
+        <li class="show-desktop"><a href="/{{ request.user.username }}/"  title="Go to your desktop">Go to Your Home Desktop</a></li>
+        <!-- <li class="add-desktop"><a href="create-new" onclick="on_menu_click('create-desktop'); return false;" title="Create a new desktop of links">Create a New Desktop...</a></li> -->
+
+<!--[if IE]>
+<li class="divider"></li>
+<li class="about"><a title="Make this desktop appear when you start your browser" href="make-home" onclick="on_menu_click('make-homepage'); return false;">Make this my default homepage</a></li>
+<![endif]-->
+
+        <li class="divider"></li>
+        {% endif -%}
+        {% endif -%}
+        {% if user.is_anonymous() -%}
+        <li class="log-out"><a href="/accounts/login/?next={{ desktop_url }}" title="Log in to edit your desktop(s)">Log in</a></li>
+        <li class="log-out"><a href="/accounts/create/" title="Get a desktop of your own!">Get your own <i>free</i> desktop</a></li>
+        <li class="divider"></li>
+        {% endif -%}
+
+        <li class="link"><a href="/" title="Go to the home page">Home</a></li>
+        <li class="link"><a href="http://www.willmcgugan.com" title="The creator of this web application">Loci Desktop Blog</a></li>
+        <li class="divider"></li>
+
+        {% if user.is_authenticated() -%}
+        <li class="log-out"><a href="/accounts/logout?next={% if desktop_settings.private %}/{{username}}/{% else %}{{ desktop_url }}{% endif %}" title="Log out of your account">Log Out</a></li>
+        <li class="divider"></li>
+        {% endif -%}
+
+        <li class="about"><a href="/pages/about/" title="Find out more about this fine web application">About Loci Desktop...</a></li>
+    </ul>
+</div>
+</div>

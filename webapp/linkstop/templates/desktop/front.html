@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+<title>Links Desktop</title>
+
+
+
+<link href="/media/css/desktop.css" type="text/css" rel="stylesheet"/>
+
+<link href="/media/css/desktop_view.css" type="text/css" rel="stylesheet"/>
+
+<script src="/media/js/jquery-1.4.js" type="text/javascript"></script>
+<script src="/media/js/desktop_view.js" type="text/javascript"></script>
+
+
+</head>
+<body>
+
+    <input id="username" type="hidden" value="{{ username }}">
+    <input id="desktop_slug" type="hidden" value="{{ desktop_slug }}">
+
+    <div class="icon-layer">
+    </div>
+
+    <div class="dialog-shade">
+    </div>
+
+<script type="text/javascript">
+var desktop_initial_state = {% if definition_json %}{{ definition_json|safe }}{% else %}null{% endif %};
+</script>
+
+{% include "ga.html" %}
+</body>
+
+
+</html>

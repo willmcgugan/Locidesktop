@@ -1,0 +1,934 @@
+* {
+border:none;
+font-family:Arial,Helvetica,sans-serif;
+margin:0;
+padding:0;
+}
+
+a {
+outline:none;
+}
+
+body {
+background-color:#f0f0f0;
+background-repeat:no-repeat;
+background-image:url(/media/images/theme/radial.png);
+font-family:helvetica,sans-serif;
+/*font-size:67.5%;*/
+zoom:1;
+}
+
+.window-container {
+position:absolute;
+left:0;
+top:0;
+}
+
+.desktop {
+width:100%;
+height:100%;
+float:left;
+}
+
+.icon-background {
+display:block;
+width:100%;
+height:100%;
+}
+
+.icon {
+display:none;
+position:absolute;
+left:0;
+top:0;
+float:left;
+margin:0 auto;
+}
+
+.icon-label {
+font-family:helvetica,sans-serif;
+font-size:12px;
+clear:both;
+position:relative;
+text-align:center;
+display:table;
+color:#000;
+margin:0 auto 14px;
+padding:8px 4px 2px;
+}
+
+.icon-label a {
+display:block;
+text-decoration:none;
+color:#333;
+}
+
+.size-labels {
+position:absolute;
+top:0;
+color:#FFF;
+font-weight:700;
+display:none;
+}
+
+.selected .icon-label {
+color:#556652;
+border:1px solid #9ADF8F;
+background-color:#D5FFCE;
+margin-top:7px;
+-moz-border-radius:5px;
+-webkit-border-radius:5px;
+border-radius:5px;
+opacity:1;
+padding:0 3px 1px;
+}
+
+.selected .icon-label .text {
+color:#666;
+}
+
+.pre-selected .icon-label .text {
+text-decoration:underline;
+}
+
+.icon-label .shadow {
+width:100%;
+z-index:0;
+left:1px;
+top:1px;
+color:#000;
+position:relative;
+text-align:center;
+}
+
+.icon .inner {
+position:relative;
+border:1px solid transparent;
+display:block;
+margin:0 auto;
+}
+
+.handle {
+cursor:pointer;
+z-index:10;
+background-repeat:no-repeat;
+}
+
+.pre-selected {
+-moz-border-radius:5px;
+-webkit-border-radius:5px;
+border-radius:5px;
+text-decoration:underline;
+}
+
+.widget {
+float:right;
+width:200px;
+height:32px;
+position:fixed;
+right:0;
+}
+
+.rect-selection {
+display:none;
+position:relative;
+}
+
+.rect-selection .background {
+background-color:blue;
+position:absolute;
+opacity:.2;
+-ms-filter:progid:DXImageTransform.Microsoft.Alpha(Opacity=20);
+filter:alpha(opacity=30);
+width:100%;
+height:100%;
+left:1px;
+top:1px;
+z-index:-10;
+margin:0;
+padding:0;
+}
+
+.rect-selection .border {
+border:1px #000 dashed;
+position:absolute;
+width:100%;
+height:100%;
+left:0;
+top:0;
+margin:0;
+padding:0;
+}
+
+.widget-layer {
+position:fixed;
+bottom:0;
+right:0;
+opacity:.7;
+-ms-filter:progid:DXImageTransform.Microsoft.Alpha(Opacity=70);
+filter:alpha(opacity=70);
+background-color:#fff;
+border:1px solid #000;
+width:200px;
+font-family:arial;
+font-size:12px;
+}
+
+.widget-layer p {
+background-color:#f5f5f5;
+padding:4px;
+}
+
+.widget-layer li {
+list-style:none;
+display:block;
+padding:3px;
+}
+
+.stack-item {
+width:48px;
+height:16px;
+background-image:url(images/icons/globe.png);
+overflow:visible;
+}
+
+.buttons-layer {
+width:100%;
+position:fixed;
+bottom:-64px;
+z-index:140;
+height:64px;
+overflow:visible;
+}
+
+.select-buttons {
+margin-left:auto;
+margin-right:auto;
+display:table;
+}
+
+.square-button {
+float:left;
+width:64px;
+height:64px;
+cursor:pointer;
+overflow:hidden;
+background-image:url(/media/images/buttons/arrangegrid.png);
+position:relative;
+margin:0 2px;
+}
+
+.button-arrange-square {
+background-position:0 0;
+}
+
+.button-arrange-grid {
+background-position:0 -64px;
+}
+
+.button-arrange-circle {
+background-position:0 -128px;
+}
+
+.button-arrange-horizontal {
+background-position:0 -192px;
+}
+
+.button-arrange-vertical {
+background-position:0 -256px;
+}
+
+.button-info {
+background-position:0 -320px;
+}
+
+.button-delete {
+background-position:0 -384px;
+}
+
+.button-undo {
+background-position:0 -448px;
+}
+
+.button-redo {
+background-position:0 -512px;
+}
+
+.button-create-stack {
+background-position:0 -576px;
+}
+
+.button-unstack {
+background-position:0 -640px;
+}
+
+.button-new {
+background-position:0 -704px;
+}
+
+.button-new-stack {
+background-position:0 -768px;
+}
+
+.button-arrange-square:hover {
+background-position:64px 0;
+}
+
+.button-arrange-grid:hover {
+background-position:64px -64px;
+}
+
+.button-arrange-circle:hover {
+background-position:64px -128px;
+}
+
+.button-arrange-horizontal:hover {
+background-position:64px -192px;
+}
+
+.button-arrange-vertical:hover {
+background-position:64px -256px;
+}
+
+.button-info:hover {
+background-position:64px -320px;
+}
+
+.button-delete:hover {
+background-position:64px -384px;
+}
+
+.button-undo:hover {
+background-position:64px -448px;
+}
+
+.button-redo:hover {
+background-position:64px -512px;
+}
+
+.button-create-stack:hover {
+background-position:64px -576px;
+}
+
+.button-unstack:hover {
+background-position:64px -640px;
+}
+
+.button-new:hover {
+background-position:64px -704px;
+}
+
+.button-new-stack:hover {
+background-position:64px -768px;
+}
+
+.guide {
+left:0;
+top:0;
+position:absolute;
+width:20px;
+height:20px;
+background-image:url(/media/images/guides/edgemarkers.png);
+display:none;
+cursor:pointer;
+z-index:110;
+}
+
+.guide:hover {
+left:0;
+top:0;
+position:absolute;
+width:20px;
+height:20px;
+background-image:url(/media/images/guides/edgemarkers-hover.png);
+display:none;
+cursor:pointer;
+z-index:110;
+}
+
+.guide.active {
+left:0;
+top:0;
+position:absolute;
+width:20px;
+height:20px;
+background-image:url(/media/images/guides/edgemarkers-hover.png);
+display:none;
+cursor:default!important;
+z-index:110;
+}
+
+.guide.dir-top-center {
+background-position:40px 0;
+}
+
+.guide.dir-top-right {
+background-position:20px 0;
+}
+
+.guide.dir-center-left {
+background-position:0 40px;
+}
+
+.guide.dir-center-right {
+background-position:20px 40px;
+}
+
+.guide.dir-bottom-left {
+background-position:0 20px;
+}
+
+.guide.dir-bottom-center {
+background-position:40px 20px;
+}
+
+.guide.dir-bottom-right {
+background-position:20px 20px;
+}
+
+.dialog-container {
+/*color:#fff;*/
+position:fixed;
+display:none;
+}
+
+.dialog-layer {
+width:100%;
+height:100%;
+position:fixed;
+display:none;
+z-index:500;
+}
+
+.dialog-shade {
+width:100%;
+height:100%;
+
+
+background-color:#fff;
+opacity:.7;
+
+
+-ms-filter:progid:DXImageTransform.Microsoft.Alpha(Opacity=.7);
+filter:alpha(opacity=70);
+position:fixed;
+display:none;
+z-index:120;
+}
+
+#new-icon-dialog
+{
+-moz-border-radius:5px;
+-webkit-border-radius:5px;
+border-radius:5px;
+background-color:#DBE3FF;
+border:1px solid #A2B4EE;
+/*color:#424961;*/
+font-family:helvetica,sans-serif;
+font-size:14px;
+padding:16px;
+}
+
+#new-icon-dialog .eg
+{
+    color:#424961;
+}
+
+#new-icon-dialog input[name=url] {
+width:392px;
+font-size:16px;
+color:#444;
+border:none;
+background-image:url(/media/images/desktop/formback.png);
+padding:4px;
+border: 1px solid #A2B4EE;
+}
+
+#new-icon-dialog ul {
+list-style:none;
+margin-top:1px;
+/*max-height:14em;*/
+position:absolute;
+z-index:200;
+background-color:#fff;
+/*opacity:.9;*/
+border:1px solid #666;
+display:none;
+}
+
+#new-icon-dialog li {
+width:388px;
+font-size:14px;
+color:#333;
+overflow:hidden;
+cursor:pointer;
+padding:2px 6px;
+}
+
+#new-icon-dialog li.selected {
+color:#000;
+background-color:#9C6;
+}
+
+#new-icon-dialog h1 {
+/*color:#9C6;*/
+font-weight:bold;
+padding-bottom:.5em;
+font-size:20px;
+color:#424961;
+}
+
+table.new_icons {
+width:100%;
+padding:2px;
+}
+
+.new-icons {
+width:100%;
+}
+
+.new-icons-container {
+margin-top:1em;
+max-height:246px;
+overflow:auto;
+}
+
+/*.new-icon {*/
+/*padding-left:28px;*/
+/*background-image:url(/media/images/world.png);*/
+/*background-position:4px 4px;*/
+/*height:32px;*/
+/*background-repeat:no-repeat;*/
+/*float:left;*/
+/*clear:both;*/
+/*font-size:20px;*/
+/*margin-top:4px;*/
+/*max-width:300px;*/
+/*overflow:hidden;*/
+/*}*/
+
+.new-icon {
+    width:30.5%;
+    height:70px;
+    float:left;
+    background-color:#D5FFCE;
+    border:1px solid #9ADF8F;
+    padding:3px 2px;
+    margin:2px;
+    color:#333;
+    /*text-shadow:1px 1px 0 #FFF;*/
+    -moz-border-radius:5px;
+    -webkit-border-radius:5px;
+    border-radius:5px;
+    font-size:12px;
+    overflow:clip;
+    text-align:center;
+    cursor:pointer;
+    overflow:hidden;
+
+}
+
+
+
+.new-icon.disabled
+{
+    background-color:#DBE3FF;
+    border-color:#A2B4EE;
+    opacity:.4;
+}
+
+.new-icon img {
+    padding:4px 2px;
+    width:48px;
+    height:48px;
+
+    /*background-image:url(/media/images/icon-load-throbber.gif);*/
+    /*background-position:8px 8px;*/
+    /*background-repeat:no-repeat;*/
+}
+.new-icon .url-label
+{
+    clear:both;
+    margin:0 auto;
+    width:100%;
+}
+
+.remove-new-icon {
+float:right;
+width:24px;
+height:24px;
+background-image:url(/media/images/new-icons-dialog/remove.png);
+cursor:pointer;
+}
+
+.new-icons-button-container {
+/*text-align:center;*/
+margin-top:2em;
+display:none;
+}
+
+.new-icons-button {
+/*display:table;*/
+width:32px;
+height:32px;
+background-repeat:no-repeat;
+cursor:pointer;
+margin:0 auto;
+padding-left:32px;
+/*color:#99CC66;*/
+font-size:18px;
+padding-bottom:2px;
+margin:0 auto;
+padding-top:2px;
+font-weight:bold;
+color:#424961;
+}
+
+.new-icons-button.ok:hover
+{
+    text-decoration:underline;
+}
+
+.edit-icons-button.ok:hover
+{
+    text-decoration:underline;
+}
+
+.new-icons-button.cancel {
+background-image:url(/media/images/button_cancel.png);
+float:right;
+}
+
+.dialog-dismiss {
+width:19px;
+height:19px;
+background-image:url(/media/images/dismiss.png);
+cursor:pointer;
+position:relative;
+/*left:6px;*/
+top:0;
+float:right;
+opacity:.7;
+}
+
+.dialog-dismiss:hover
+{
+    opacity:1;
+}
+
+#loading-dialog .dialog-inner {
+z-index:300;
+text-align:center;
+}
+
+.icon .handle:hover + .icon-label a,.icon-label a:hover {
+text-decoration:underline;
+color:#57A000;
+}
+
+table.edit-icon-details {
+clear:both;
+width:100%;
+}
+
+#edit-icon-dialog
+{
+    -moz-border-radius:5px;
+-webkit-border-radius:5px;
+border-radius:5px;
+background-color:#DBE3FF;
+border:1px solid #A2B4EE;
+color:#424961;
+font-family:helvetica,sans-serif;
+font-size:14px;
+padding:16px;
+}
+
+#edit-icon-dialog h1 {
+font-size:1.5em;
+margin-bottom:14px;
+text-align:center;
+padding-bottom:4px;
+}
+
+#edit-icon-dialog table.edit-icon-details label {
+font-size:20px;
+/*color:#9C6;*/
+float:left;
+}
+
+#edit-icon-dialog input[type=text] {
+width:98%;
+font-size:20px;
+color:#444;
+background-image:url(/media/images/desktop/formback.png);
+margin:2px;
+padding:2px;
+border:1px solid #A2B4EE;
+}
+
+#edit-icon-dialog textarea {
+background-image:url(/media/images/desktop/formback.png);
+}
+
+ul.dialog-tabs {
+list-style:none;
+float:left;
+/*clear:both;*/
+/*width:100%;*/
+/*border-bottom:1px solid #FFF;*/
+margin:16px 0 32px;
+}
+
+.dialog-tabs li {
+width:100px;
+float:left;
+font-size:100%;
+cursor:pointer;
+}
+
+.edit-icons-button {
+/*display:table;*/
+width:32px;
+min-height:20px;
+background-repeat:no-repeat;
+cursor:pointer;
+clear:both;
+margin:32px auto 0;
+padding-left:32px;
+padding-top:2px;
+font-weight:bold;
+color:#424961;
+}
+
+.tab-panel {
+display:none;
+clear:both;
+min-height:240px;
+}
+
+textarea[name=icon-details] {
+width:480px;
+height:200px;
+padding:8px;
+border:1px solid #A2B4EE;
+}
+
+.icon a,.icon a:visited,.icon a:active {
+display:block;
+width:100%;
+height:100%;
+outline:0!important;
+}
+
+.icon .search-box {
+width:100%;
+display:none;
+}
+
+.icon .search-box input {
+width:94%;
+border:1px solid #aaa;
+background-image:url(/media/images/desktop/formback.png);
+font-size:13px;
+padding:2px;
+}
+
+.icon.stack {
+z-index:1000;
+}
+
+.options-container {
+position:fixed;
+right:0;
+float:right;
+}
+
+.options-link {
+color:#FFF;
+font-weight:700;
+cursor:pointer;
+float:right;
+}
+
+.options {
+background-color:#FFF;
+border:1px solid #000;
+min-width:100px;
+float:right;
+clear:both;
+display:none;
+opacity:.9;
+padding:1px;
+}
+
+.options ul {
+list-style:none;
+width:200px;
+}
+
+.options li.option:hover {
+background-color:#9C6;
+}
+
+.options li.option a,.options li.option a:active,.options li.option a:visited {
+display:block;
+text-decoration:none;
+color:#000;
+outline:0!important;
+padding:4px;
+}
+
+select.iconset {
+width:140px;
+float:left;
+}
+
+.iconset_label {
+float:left!important;
+}
+
+.size-up {
+width:16px;
+height:16px;
+background-image:url(/media/images/sizeup.png);
+cursor:pointer;
+}
+
+.size-down {
+width:16px;
+height:16px;
+background-image:url(/media/images/sizedown.png);
+cursor:pointer;
+}
+
+.size-up.disabled,.size-down.disabled {
+visibility:hidden;
+cursor:default!important;
+}
+
+#icon-visual-tab select {
+width:300px;
+font-size:16px;
+color:#555;
+border:1px solid #A2B4EE;
+}
+
+.pack-selector select {
+float:right;
+}
+
+.icon-select {
+width:32px;
+height:32px;
+float:left;
+border:1px solid #eee;
+position:relative;
+overflow:visible;
+margin:3px;
+padding:1px;
+}
+
+.icon-select:hover {
+border:1px dashed #000;
+}
+
+.pack-list-container {
+background-color:#fff;
+opacity:1;
+overflow:auto;
+height:212px;
+margin-top:8px;
+color:#000;
+float:left;
+clear:both;
+width:100%;
+border:1px solid #A2B4EE;
+}
+
+.pack-icon-list {
+background-repeat:no-repeat;
+float:left;
+opacity:1!important;
+}
+
+.icon .selected {
+z-index:150;
+}
+
+.icon-select.selected {
+border:3px solid blue;
+margin:1px;
+}
+
+.icon-select-expand {
+width:64px;
+height:64px;
+border:1px solid #000;
+background-color:#FFF;
+position:fixed;
+z-index:2000;
+float:left;
+left:-16px;
+top:-16px;
+display:none;
+}
+
+.icon-select.selected .icon-select-expand {
+border:3px solid blue;
+margin-left:-2px;
+margin-top:-2px;
+}
+
+#desktop-edit-links {
+position:fixed;
+width:100%;
+}
+
+.loading-icon-pack {
+background-image:url(/media/images/white-throbber.gif);
+background-repeat:no-repeat;
+padding-left:64px;
+background-color:#fff;
+width:100%;
+padding-top:18px;
+color:#000;
+height:212px;
+z-index:100;
+}
+
+#signup-dialog {
+-moz-border-radius:5px;
+-webkit-border-radius:5px;
+border-radius:5px;
+color:#556652;
+background-color:#DBE3FF;
+border:1px solid #A2B4EE;
+}
+
+.icon-layer,.stack-layer,.new-icon .url-label,#edit-icon-dialog .custom-icon-check {
+float:left;
+}
+
+.icon:hover .size-labels,.tab-panel.active {
+display:block;
+}
+
+.hover-over,ul.dialog-tabs li.active,span.auto-highlight {
+font-weight:700;
+}
+
+.selection-layer,.guide-layer {
+float:left;
+left:0;
+position:absolute;
+top:0;
+}
+
+.stack,#dialog-signup {
+display:none;
+}
+
+.new-icons-button.ok,.edit-icons-button.ok {
+background-image:url(/media/images/button_ok.png);
+}

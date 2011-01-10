@@ -1,0 +1,12 @@
+
+<select id="icon-pack-select">
+{% for catalog_name, categories in catalogs %}
+
+    <optgroup label="{{ catalog_name }}">
+    {% for category in categories %}
+        <option value="{{catalog_name}}.{{ category }}">{{ category }}</option>
+    {% endfor %}
+    </optgroup>
+
+{% endfor %}
+</select>

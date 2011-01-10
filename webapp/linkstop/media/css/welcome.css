@@ -1,0 +1,269 @@
+body {
+min-height:600px;
+}
+
+.invisible {
+display:none;
+}
+
+#welcome-options {
+font-size:12px;
+clear:both;
+width:100%;
+}
+
+#welcome-options .inner {
+position:absolute;
+height:240px;
+top:50%;
+margin-top:-120px;
+width:100%;
+}
+
+#welcome-options .option {
+-moz-border-radius:5px;
+-webkit-border-radius:5px;
+border-radius:5px;
+width:450px;
+background-color:#DBE3FF;
+border:1px solid #A2B4EE;
+cursor:pointer;
+color:#333;
+min-height:80px;
+background-repeat:no-repeat;
+background-position:14px center;
+margin:0 auto;
+padding:10px 50px 10px 100px;
+}
+
+#welcome-options .option.auto-desktop {
+background-image:url(/media/images/welcome/demo.png);
+margin-bottom:30px;
+}
+
+#welcome-options .option.create-desktop {
+background-image:url(/media/images/welcome/desktopshare.png);
+}
+
+#welcome-options .option.active {
+border:1px solid #E6DB55;
+background-color:#FFFBCC;
+color:#7f7a2f;
+cursor:default;
+}
+
+#welcome-options .option h1 {
+font-size:18px;
+font-weight:700;
+padding-bottom:4px;
+text-align:center;
+padding-top:16px;
+text-shadow:#fff 0 0 4px;
+}
+
+#welcome-options p {
+font-size:120%;
+text-align:center;
+}
+
+#welcome-message {
+clear:both;
+width:600px;
+color:#333;
+margin:0 auto;
+}
+
+#welcome-message h1 {
+font-size:18px;
+font-weight:400;
+letter-spacing:1px;
+}
+
+#welcome-message .tagline {
+font-size:14px;
+color:#666;
+}
+
+#welcome-message .title {
+text-align:center;
+}
+
+#footer {
+position:fixed;
+bottom:20px;
+width:100%;
+}
+
+#footer ul {
+list-style:none;
+}
+
+#footer .content {
+font-size:12px;
+color:#333;
+width:600px;
+margin:0 auto;
+}
+
+#footer li {
+float:left;
+padding:2px 20px;
+}
+
+#footer li.first {
+padding-left:0;
+}
+
+#footer li.right {
+padding-right:0;
+}
+
+#footer a,#footer a:visited {
+color:inherit;
+font-style:normal;
+text-decoration:none;
+}
+
+#footer a:hover {
+text-decoration:underline;
+color:#57A000;
+}
+
+#footer .copyright {
+padding-top:8px;
+clear:both;
+color:#888;
+}
+
+#auto-desktop-container {
+width:100%;
+display:none;
+margin:0 auto;
+}
+
+#auto-desktop-container .auto-inner {
+width:600px;
+margin:0 auto;
+}
+
+#auto-icons {
+list-style:none;
+height:290px;
+overflow:auto;
+}
+
+#auto-icons li {
+float:left;
+max-width:114px;
+width:18.9%;
+height:56px;
+color:#333;
+text-align:center;
+padding-top:10px;
+background-color:#DBE3FF;
+border:1px solid #A2B4EE;
+-moz-border-radius:5px;
+-webkit-border-radius:5px;
+border-radius:5px;
+overflow:hidden;
+margin:2px;
+}
+
+#auto-icons li img {
+width:100%;
+height:100%;
+margin:0 auto;
+}
+
+#auto-icons li.clickable {
+cursor:pointer;
+}
+
+#auto-icons li.clickable:hover {
+color:#000;
+}
+
+#auto-icons li.selected {
+background-color:#D5FFCE;
+color:#333;
+text-shadow:#fff 1px 1px 0;
+border-color:#9ADF8F;
+}
+
+.sq32 {
+width:32px;
+height:32px;
+margin:0 auto;
+}
+
+#welcome-throbber {
+background-image:url(/media/images/welcome-throbber.gif);
+background-position:center top;
+background-repeat:no-repeat;
+width:600px;
+text-align:center;
+padding-bottom:16px;
+margin:0 auto;
+}
+
+#scan-complete {
+width:600px;
+text-align:center;
+padding-bottom:28px;
+margin:0 auto;
+}
+
+#welcome-throbber .scanning {
+padding-top:24px;
+font-size:16px;
+font-weight:700;
+color:#333;
+}
+
+#scan-complete .scanning {
+padding-top:12px;
+font-size:16px;
+font-weight:700;
+color:#333;
+}
+
+.disclaimer {
+font-size:12px;
+color:#999;
+}
+
+#auto-buttons {
+width:600px;
+text-align:center;
+padding-top:20px;
+display:none;
+margin:0 auto;
+}
+
+#auto-buttons .suboption {
+-moz-border-radius:5px;
+-webkit-border-radius:5px;
+border-radius:5px;
+float:left;
+background-color:#DBE3FF;
+border:1px solid #A2B4EE;
+cursor:pointer;
+color:#333;
+background-repeat:no-repeat;
+background-position:14px center;
+font-size:16px;
+width:65%;
+font-weight:700;
+padding:10px;
+}
+
+#auto-buttons .suboption.cancel {
+float:right;
+width:25%;
+}
+
+#welcome-options .option:hover,#auto-buttons .suboption:hover {
+background-color:#D5FFCE;
+color:#5b8555;
+border-color:#9ADF8F;
+}

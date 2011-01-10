@@ -1,0 +1,32 @@
+            <div class="navwrap">
+                <ul id="nav">
+                <li><a href="/">Home</a></li>
+                {# <li><a href="portfolio.html">Portfolio</a></li> #}
+                <li><a href="/pages/about/">About</a>
+                   <!-- <ul>
+                        <li><a href="#">Philosophy</a></li>
+                        <li><a href="#">Team</a></li>
+                        <li><a href="#">Jobs</a></li>
+                        <li><a href="#">Webdesign</a></li>
+                        <li><a href="#">About</a>
+                        <ul>
+                            <li><a href="#">Philosophy</a></li>
+                            <li><a href="#">Team</a></li>
+                            <li><a href="#">Jobs</a></li>
+                            <li><a href="#">Webdesign</a></li>
+                        </ul>
+                        </li>
+                    </ul>-->
+                </li>
+                <li><a href="/pages/contact/">Contact</a></li>
+                <li {# class="current_page_item" #}><a href="/pages/blog/">Blog</a></li>
+
+                {% if request.user.is_anonymous() %}
+                <li><a href="/accounts/login/">Login</a></li>
+                <li><a href="/accounts/create/">Get a <i>free</i> desktop</a></li>
+                {% else %}
+                <li><strong><a href="/{{ request.user.username }}/">{{ request.user.username }}</a></strong></li>
+                <li><a href="/accounts/logout/?next={{ request.path }}">Logout</a></li>
+                {% endif %}
+                </ul>
+             </div><!--end navwrap-->

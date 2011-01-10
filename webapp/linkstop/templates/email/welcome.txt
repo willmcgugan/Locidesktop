@@ -1,0 +1,13 @@
+Dear {{ name }},
+
+Thanks for signing up to Loci Desktop.
+
+Your home desktop is <{{ home_desktop_url }}>. You can also create new desktops from the same page (click Options, on the top-left of the page).
+
+Hope you enjoy Loci Desktop, let me know if you have any questions.
+
+Best Regards,
+
+Will McGugan
+--
+http://www.willmcgugan.com

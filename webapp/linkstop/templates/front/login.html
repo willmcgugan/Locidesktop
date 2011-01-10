@@ -1,0 +1,72 @@
+{% extends "/front/base.html" %}
+
+{% block breadcrumb %}
+<span class="current_crumb">Login</span>
+
+{% endblock %}
+
+{% block content %}
+
+<span class="meta">Login to your desktop</span>
+<h2>Account login</h2>
+
+{% if request.user.is_authenticated() %}
+<p>
+    You are already logged in as <strong>{{ request.user.username }}</strong>,
+    would you like to <a href="/{{ request.user.username }}/">go to your desktop</a>?
+</p>
+
+{% else %}
+
+<p>
+You will need to login to edit your desktop(s), or view a private desktop that you own.
+</p>
+
+
+{% if failed %}
+<p class="error">
+    <strong>Login details were not correct. Did you mis-type?</strong>
+</p>
+
+{% endif %}
+
+<form class="ajax_form" action="." method="POST">
+    <fieldset>
+        <legend><span>Account details</span></legend>
+        <p>
+        <input name="username" class="text_input" type="text"></input>
+        <label for="username">Username, or email *</label>
+        </p>
+        <p>
+        <input name="password" class="text_input" type="password"></input>
+        <label for="username">Your password *</label>
+        </p>
+        <input type="hidden" name="next" value="{{ next }}"></input>
+    </fieldset>
+
+    <input type="submit" size="16" id="send" class="button" value="Login" name="Send"/>
+
+</form>
+
+{% endif %}
+
+{% endblock %}
+
+
+{% block sidebar %}
+
+
+            <div class="small_box box3">
+            	<span class="meta">Don't have a login?</span>
+            	<h3><a href="/accounts/create/">Get your free desktop</a></h3>
+                <p>Create desktops to quick an easily store your your favorite links &mdash; and find new ones!.</p>
+                <p>
+                <strong>
+                    <a href="/accounts/create/">Get a <em>free</em> Loci Desktop!</a>
+                </strong>
+                </p>
+
+
+            </div><!--end small_box-->
+
+{% endblock %}

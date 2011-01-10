@@ -1,0 +1,118 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>{{ desktop_name }}</title>
+<link href="{{ settings.MEDIA_URL }}css/desktop.css?{{ settings.CACHE_BUSTER }}" type="text/css" rel="stylesheet"/>
+
+{#<link href="{{ settings.MEDIA_URL }}css/desktop_view.css?{{ settings.CACHE_BUSTER }}" type="text/css" rel="stylesheet"/>#}
+{#<link href="{{ settings.MEDIA_URL }}css/desktop_common.css?{{ settings.CACHE_BUSTER }}" type="text/css" rel="stylesheet"/>#}
+<link href="{{ settings.MEDIA_URL }}css/desktop_view_list.css?{{ settings.CACHE_BUSTER }}" type="text/css" rel="stylesheet"/>
+
+
+{%- if theme.css %}
+<style type="text/css">
+{{ theme.css }}
+</style>
+{%- endif %}
+
+</head>
+<body>
+
+<input type="hidden" name="username" value="{{ desktop.owner.username }}" />
+<input type="hidden" name="desktop_slug" value="{{ desktop.slug }}" />
+
+{%- macro icon_form(icon) %}
+<form>
+    <input type="hidden" name="icon_id" value="{{ icon.icon_id }}" />
+    <input class="link-name" type="text" name="name" value="{{ icon.name|escape }}" />
+    <input class="link-url" type="text" name="url" value="{{ icon.url|escape }}" />
+    <textarea class="link-notes" name="notes">{{ icon.notes|escape }}</textarea>
+    <div class="buttons">
+        <div class="button ok">Save changes</div>
+        <div class="button cancel">Cancel</div>
+    </div>
+</form>
+{%- endmacro %}
+
+{%- macro render_icon(icon, h) %}
+    <input type="hidden" class="searchname" value="{{ icon.name|lower }}" />
+    {% if allow_edit %}<a href="edit" class="edit-link">Edit</a>{% endif %}
+    <a class="ilink" href="{{ icon.url }}">
+        <img src="{{ icon.get_image(32) }}" />
+    </a>
+    <div class="desc">
+        <h{{ h }} class="icon_list"><a class="ilink" href="{{ icon.url }}">{{ icon.name }}</a></h3>
+        <pre>{{ icon.url }}</pre>
+        <p class="notes">{{ icon.notes|escape }}</p>
+        {{ icon_form(icon)|safe }}
+    </div>
+{%- endmacro %}
+
+
+<div id="icons-list-view">
+    <div class="content">
+        <h1>{{ desktop_name }}</h1>
+        <div class="tagline">{{ tagline }}</div>
+
+        <div class="search-box">
+            <input type="text" name="search" id="search" />
+            {#<div class="clear-filter" >Clear</div>#}
+            <div style="clear:both;"></div>
+        </div>
+
+        <ul>
+            {%- for icon in list_icons %}
+
+            <li id="icon_{{ icon.icon_id }}" class="{% if loop.index is odd and not icon.children %} odd{% endif %}">
+
+                {%- if icon.type=='icon' %}
+                <div class="top-icon licon">
+                    {{ render_icon(icon, 2) }}
+                </div>
+                {%- endif %}
+
+                {%- if icon.type=='stack' %}
+                <div class="stack-list">
+                    <img src="{{ icon.get_image(32) }}" class="stack-img" />
+                    <div class="desc">
+                        <h2 class="stack_list">{{ icon.name }}</h2>
+                        <p>{{ icon.notes }}</p>
+                    </div>
+                    <ul>
+                        {% for icon in icon.children %}
+                        <li id="icon_{{ icon.icon_id }}" class="licon{% if loop.index is odd %} odd{% endif %}">
+                            {{ render_icon(icon, 3) }}
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </endif>
+                {%- endif %}
+
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+
+{%- if not settings.DEBUG %}
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js" type="text/javascript"></script>
+{%- else %}
+<script src="{{ settings.MEDIA_URL }}js/jquery-1.4.min.js" type="text/javascript"></script>
+{%- endif %}
+
+<script src="{{ settings.MEDIA_URL }}js/desktop_common.js?{{ settings.CACHE_BUSTER }}" type="text/javascript"></script>
+<script src="{{ settings.MEDIA_URL }}js/desktop_list.js?{{ settings.CACHE_BUSTER }}" type="text/javascript"></script>
+
+
+{% include "ga.html" %}
+
+{%- if theme.js %}
+<script type="text/javascript">
+{{ theme.js }}
+</script>
+{%- endif %}
+</body>
+</html>

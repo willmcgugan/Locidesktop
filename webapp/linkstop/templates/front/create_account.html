@@ -1,0 +1,41 @@
+{% extends "front/base.html" %}
+
+
+
+{% block breadcrumb %}
+<span class="current_crumb">Create Account</span>
+
+{% endblock %}
+
+{% block content %}
+<style type="text/css">
+ul.error_msgs
+{
+    list-style-type:none;
+    color:#a00;
+    margin-left:0px;
+}
+
+</style>
+
+<span class="meta">New account</span>
+<h2>Get a free desktop</h2>
+
+<p>
+One <em>quick and easy</em> form to create a new account &mdash; you won't even need to validate your email to create a new desktop!
+</p>
+
+{% macro show_errors(error) -%}
+{% if errors[error] %}
+{% for msg in errors[error] %}
+<ul class="error_msgs">
+    <li>{{ msg }}</li>
+</ul>
+{% endfor %}
+{% endif %}
+{% endmacro %}
+
+{% include "front/includes/new_account_form.html" %}
+
+
+{% endblock %}

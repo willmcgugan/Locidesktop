@@ -1,0 +1,8 @@
+The Django project is located in webapp/linkstop
+
+Before you can run a locidesktop server, do the following from the command line:
+
+sh runonce.sh
+
+This will download some resources, and set up the database. You will also be
+prompted to set up an admin user.

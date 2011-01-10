@@ -1,0 +1,295 @@
+.desktop-label {
+-moz-border-radius:5px;
+-webkit-border-radius:5px;
+border-radius:5px;
+border:1px solid #A2B4EE;
+display:block;
+font-size:13px;
+float:left;
+z-index:100;
+position:relative;
+cursor:pointer;
+background-color:#FFFBCC;
+color:#666452;
+background-position:2px 1px;
+background-repeat:no-repeat;
+border-color:#E6DB55;
+margin:4px 2px;
+padding:2px 10px;
+}
+
+.desktop-label.active {
+font-weight:700;
+}
+
+.desktop-label.private {
+padding-left:24px;
+background-image:url(/media/images/lock.png);
+}
+
+.desktop-label.edit {
+padding-left:24px;
+background-image:url(/media/images/shape_square_edit.png);
+color:#585B66;
+border:1px solid #A2B4EE;
+background-color:#DBE3FF;
+}
+
+.desktop-label.quick-add-desktop {
+background-image:url(/media/images/shape_square_add.png);
+color:#585B66;
+border:1px solid #A2B4EE;
+background-color:#DBE3FF;
+}
+
+.desktop-label.quick-add-desktop a {
+width:0;
+overflow:hidden;
+}
+
+.user-label {
+background-image:url(/media/images/user.png);
+background-repeat:no-repeat;
+padding-left:20px;
+border:1px solid #A2B4EE;
+background-color:#FFFBCC;
+color:#000;
+float:left;
+border-color:#E6DB55;
+}
+
+.desktop-label a {
+display:block;
+}
+
+.desktop-label a:link,.desktop-label a:visited {
+color:#000;
+text-decoration:none;
+}
+
+.desktop-label:hover {
+text-decoration:none;
+border:1px solid #9ADF8F;
+background-color:#D5FFCE;
+color:#5b8555;
+}
+
+.desktop-label:hover a {
+color:#333;
+}
+
+.options-menu {
+background-image:url(/media/images/wrench.png);
+background-repeat:no-repeat;
+padding-left:32px;
+border:1px solid #A2B4EE;
+background-color:#DBE3FF;
+color:#000;
+float:left;
+display:block;
+}
+
+.options-menu a {
+background-image:url(/media/images/expand.png);
+padding-right:32px;
+background-position:right 4px;
+background-repeat:no-repeat;
+}
+
+.menu {
+clear:both;
+float:left;
+background-color:#FFF;
+border:1px solid #A2B4EE;
+font-size:13px;
+z-index:2000;
+position:relative;
+margin:2px 4px;
+padding:4px 0;
+}
+
+.menu li {
+padding-left:4px;
+padding-right:4px;
+list-style:none;
+margin:0;
+}
+
+.menu li.divider {
+height:1px;
+border-bottom:1px dotted #ccc;
+margin:8px 0;
+}
+
+.menu li a {
+display:block;
+text-decoration:none;
+color:#000;
+border:1px solid #fff;
+background-repeat:no-repeat;
+background-position:2px 5px;
+padding:6px 5px 6px 30px;
+}
+
+.menu li:hover a {
+border:1px solid #9ADF8F;
+background-color:#D5FFCE;
+-moz-border-radius:5px;
+-webkit-border-radius:5px;
+border-radius:5px;
+}
+
+.log-out a {
+background-image:url(/media/images/status_offline.png);
+}
+
+.edit-desktop a {
+background-image:url(/media/images/shape_square_edit.png);
+}
+
+.add-desktop a {
+background-image:url(/media/images/shape_square_add.png);
+}
+
+.delete-desktop a {
+background-image:url(/media/images/shape_square_delete.png);
+}
+
+.link a {
+background-image:url(/media/images/world.png);
+}
+
+.about a {
+background-image:url(/media/images/star.png)!important;
+}
+
+.option-button {
+background-image:url(/media/images/wrench.png);
+padding-left:32px;
+border:1px solid #A2B4EE;
+background-color:#DBE3FF;
+color:#000;
+float:left;
+display:block;
+background-repeat:no-repeat;
+}
+
+.discard-desktop {
+background-image:url(/media/images/cross.png);
+padding-left:32px!important;
+}
+
+.save-desktop {
+background-image:url(/media/images/tick.png);
+padding-left:32px!important;
+}
+
+.dialog-popup-container {
+width:545px;
+position:absolute;
+top:100px;
+display:none;
+z-index:1000;
+}
+
+.dialog-popup {
+min-height:40px;
+width:485px;
+-moz-border-radius:5px;
+-webkit-border-radius:5px;
+border-radius:5px;
+background-color:#DBE3FF;
+border:1px solid #A2B4EE;
+color:#424961;
+font-family:helvetica,sans-serif;
+font-size:14px;
+padding:20px 10px 10px;
+}
+
+.dialog-popup .content {
+max-height:210px;
+overflow:auto;
+color:#424961;
+padding:0 10px;
+}
+
+.dialog-popup .content p {
+padding-bottom:.5em;
+}
+
+.dialog-popup-base {
+background-image:url(/media/images/desktop/dialog.png);
+background-position:0 bottom;
+width:545px;
+height:30px;
+clear:both;
+}
+
+.dialog-popup .buttons {
+display:table;
+margin:0 auto;
+}
+
+.dialog-popup .button {
+background-repeat:no-repeat;
+height:32px;
+cursor:pointer;
+padding-left:28px;
+font-size:16px;
+font-weight:700;
+padding-top:6px;
+float:left;
+margin:20px 26px 0 auto;
+}
+
+.dialog-popup .button.ok {
+background-image:url(/media/images/tickcross.png);
+background-position:2px 8px;
+}
+
+.dialog-popup .button.cancel {
+background-image:url(/media/images/tickcross.png);
+background-position:2px -28px;
+}
+
+.dialog-popup .button:hover {
+text-decoration:underline;
+}
+
+.dialog-popup input[type=text] {
+width:100%;
+background-image:url(/media/images/desktop/formback.png);
+border:1px solid #999;
+font-size:14px;
+margin:8px 0;
+padding:4px;
+}
+
+.dialog-popup h1 {
+font-size:1.5em;
+margin-bottom:14px;
+text-align:center;
+padding-bottom:4px;
+}
+
+.desktop-setting a.off {
+background-image:url(/media/images/disabled-tick.png);
+}
+
+.desktop-setting a.on {
+background-image:url(/media/images/tick.png);
+}
+
+#menu_options li.disabled a {
+cursor:default;
+color:#999!important;
+opacity:.4;
+}
+
+.invisible,.msg {
+display:none;
+}
+
+.show-desktop a,.refresh-icons a {
+background-image:url(/media/images/shape_square.png);
+}

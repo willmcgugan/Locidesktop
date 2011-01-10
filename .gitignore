@@ -1,0 +1,15 @@
+*.pyc
+*.kpf
+*~
+*_local.py
+*.db
+*.orig
+*.rca
+.project
+.pydevproject
+*.db
+*.tar.gz
+*.zip
+*.csv
+webapp/linkstop/media/iconsets/*
+webapp/linkstop/media/iconsetpreviews/*

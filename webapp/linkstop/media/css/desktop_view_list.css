@@ -1,0 +1,348 @@
+br.clear
+{
+    clear:both;
+    border:0;
+}
+
+ul {
+    clear:both;
+}
+
+#icons-list-view
+{
+    width:800px;
+    margin:0 auto;
+    background-color:#fff;
+
+     -moz-border-radius:5px;
+    -webkit-border-radius:5px;
+    border-radius:5px;
+
+    border:1px solid #A5C956;
+    border:1px solid #A2B4EE;
+    margin-top:20px;
+    margin-bottom:20px;
+}
+
+
+.stack-list
+{
+    padding-top:40px;
+}
+
+.stack-img
+{
+    width:32px;
+    height:32px;
+    margin-left:0px !important;
+    padding-left:12px !important;
+}
+
+
+
+#icons-list-view a, #icons-list-view a:active, #icons-list-view a:visited
+{
+    color:#A5C956;
+    text-decoration:none;
+}
+
+
+#icons-list-view a:hover
+{
+    text-decoration:underline;
+}
+
+#icons-list-view .tagline
+{
+    font-size:13px;
+    color:#666;
+    padding-bottom:24px;
+    text-align:center;
+}
+
+#icons-list-view h1
+{
+    color:#A5C956;
+    color:#A5C956;
+
+    font-size:32px;
+    font-weight:normal;
+    letter-spacing:1px;
+
+    text-align:center;
+}
+
+
+#icons-list-view h3, input.link-name
+{
+    color:#A5C956;
+    font-size:14px;
+    font-weight:bold;
+}
+
+#icons-list-view h2
+{
+    color:#A5C956;
+    font-size:14px;
+    font-weight:bold;
+}
+
+
+#icons-list-view h2.stack_list
+{
+    font-size:14px;
+    color:#333;
+    padding-top:12px;
+    margin:0px;
+    margin-left:-40px;
+}
+
+
+#icons-list-view h3.stack_list
+{
+    font-size:18px;
+    color:#666;
+    padding-top:8px;
+    margin:0px;
+}
+
+#icons-list-view p
+{
+    color:#333;
+    font-size:13px;
+    clear:left;
+}
+
+#icons-list-view pre
+{
+    font-family:monospace;
+    color:#999;
+    font-size:12px;
+}
+
+input.link-url
+{
+    font-family:monospace;
+    color:#999;
+}
+
+#icons-list-view .content
+{
+    margin:20px;
+}
+
+#icons-list-view ul
+{
+    list-style-type:none;
+    /*width:100%;*/
+    overflow:hidden;
+
+}
+
+#icons-list-view .top-icon
+{
+
+}
+
+
+#icons-list-view .desc
+{
+    /*
+    width:92%;
+    float:right;
+    */
+    padding-left:100px;
+}
+
+
+
+
+#icons-list-view ul ul
+{
+    margin-left:20px;
+    padding-top:12px;
+    padding-left:60px;
+    clear:both;
+
+}
+
+#icons-list-view li
+{
+    /*
+    padding-top:8px;
+    padding-bottom:12px;
+    */
+    /*border-bottom:1px dotted #aaa;*/
+}
+
+#icons-list-view li.odd
+{
+    background-color:#f5f5f5;
+}
+
+#icons-list-view ul ul li
+{
+
+
+}
+
+
+#icons-list-view img
+{
+    float:left;
+    margin:4px;
+    height:100%;
+    margin-left:34px;
+}
+
+
+
+
+#icons-list-view li
+{
+    clear:both;
+}
+
+form
+{
+    display:none;
+}
+
+input, textarea
+{
+    width:97%;
+    clear:both;
+    /*background-image:url(/media/images/desktop/formback.png);*/
+    border:1px solid #aaa;
+    padding:2px;
+}
+
+input:focus, textarea:focus
+{
+    border:1px solid #A5C956;
+}
+
+li input
+{
+    margin:4px 0px;
+    min-height:18px;
+}
+textarea
+{
+    margin:4px 0px;
+    height:8em;
+    font-size:16px;
+    color:#333;
+}
+
+.buttons {
+display:table;
+margin:0 auto;
+}
+
+.button {
+background-repeat:no-repeat;
+height:32px;
+cursor:pointer;
+padding-left:28px;
+font-size:16px;
+font-weight:700;
+padding-top:6px;
+float:left;
+margin:8px 26px 0 auto;
+color:#888;
+color:#424961;
+}
+
+.button.ok {
+background-image:url(/media/images/tickcross.png);
+background-position:2px 8px;
+}
+
+.button.cancel {
+background-image:url(/media/images/tickcross.png);
+background-position:2px -28px;
+}
+
+.button:hover {
+text-decoration:underline;
+}
+
+li .edit
+{
+    background-color:#DBE3FF;
+    border:1px solid #A2B4EE;
+}
+
+
+a.edit-link
+{
+    float:right;
+    visibility:hidden;
+    margin-right:16px;
+    font-size:12px;
+    background-image:url(/media/images/page_white_edit.png);
+    padding-left:22px;
+    background-position:left center;
+    background-repeat:no-repeat;
+    color:#333;
+    min-height:16px;
+
+}
+
+.edit-link:link
+{
+    color:#666 !important;
+}
+
+li:hover > a.edit-link, li:hover > .top-icon > a.edit-link
+{
+    visibility:visible;
+
+}
+
+.licon
+{
+    padding-top:8px;
+    padding-bottom:8px;
+}
+
+.searchname
+{
+    display:none !important;
+}
+
+.search-box
+{
+    -moz-border-radius:5px;
+    -webkit-border-radius:5px;
+    border-radius:5px;
+    background-color:#DBE3FF;
+    border:1px solid #A2B4EE;
+    padding:3px;
+    width:250px;
+
+    position:fixed;
+    bottom:3px;
+    left:3px;
+    padding-right:6px;
+}
+
+.search-box input
+{
+    border:1px solid #A2B4EE;
+    float:left;
+    /*width:200px;*/
+    margin-left:2px;
+}
+
+.search-box .clear-filter
+{
+    float:left;
+    cursor:pointer;
+}
+.clear
+{
+    clear:both;
+    height:1px;
+}

@@ -1,0 +1,319 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>{% block title %}Loci Desktop{% endblock %}</title>
+
+{# <link href="{{ settings.MEDIA_URL }}css/desktop.css?{{ settings.CACHE_BUSTER }}" type="text/css" rel="stylesheet"/> #}
+<link href="{{ settings.MEDIA_URL }}css/desktop_common.css?{{ settings.CACHE_BUSTER }}" type="text/css" rel="stylesheet"/>
+
+
+{% if not settings.DEBUG %}
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js" type="text/javascript"></script>
+{% else %}
+<script src="{{ settings.MEDIA_URL }}js/jquery-1.4.min.js" type="text/javascript"></script>
+{% endif %}
+
+<style type="text/css">
+
+body
+{
+
+
+    font-family:helvetica,sans-serif;
+
+    font-size:67.5%;
+    color:#333;
+
+    background-color:#FFFBCC;
+    color:#7f7a2f;
+
+    background-color:#DBE3FF;
+    color:#333;
+}
+
+p{margin:0;padding:0;}
+
+label
+{
+    float:left;
+    font-weight:bold;
+    padding-top:2px;
+}
+
+input[type=text], input[type=password]
+{
+    float:right;
+    background-image:url(/media/images/desktop/formback.png);
+    border:1px solid #A2B4EE;
+    margin:2px 0px;
+    width:190px;
+    clear:both;
+}
+
+input[type=text]:focus, input[type=password]:focus
+{
+    border-color:#333;
+}
+
+fieldset
+{
+    border:none;
+    margin:0px;
+    padding:0px;
+}
+
+
+.signup-box
+{
+    font-size:120%;
+
+}
+
+h1
+{
+    font-size:18px;
+    font-weight:bold;
+    padding-bottom:0px;
+    text-align:center;
+
+    text-shadow: #fff 0px 0px 4px;
+
+
+    color:#333;
+    margin:0px;
+}
+
+form
+{
+    padding-top:20px;
+    margin:2px;
+
+}
+
+input[type=submit]
+{
+    width:190px;
+    float:right;
+    margin-top:12px;
+}
+
+.instructions
+{
+    color:#666;
+    text-align:center;
+    padding-bottom:20px;
+
+}
+
+legend
+{
+    color:#5b8555;
+    padding-top:6px;
+    font-size:95%;
+    padding-bottom:20px;
+    font-style:italic;
+    display:none;
+}
+
+ul.error_msgs
+{
+   list-style-type:none;
+   margin:0px;
+   padding:0px;
+}
+
+.error_msgs li
+{
+    margin:0px;
+    padding:1px;
+    clear:both;
+    /*
+    background-color:#fff;
+    border:1px solid #aabdfa;
+    */
+    font-size:95%;
+    font-style:italic;
+
+    padding-left:24px;
+    background-image:url(/media/images/exclamation.png);
+    min-height:16px;
+    background-repeat:no-repeat;
+    background-position:2px center;
+
+    margin: 4px 0px 0px 0px;
+
+}
+
+.success
+{
+    margin-top:20px;
+    font-size:110%;
+}
+
+p
+{
+    margin-bottom:1em;
+}
+
+pre
+{
+    font-size:16px;
+}
+
+.options
+{
+    margin-top:80px;
+    width:100%;
+}
+
+.options .ok
+{
+    margin:0 auto;
+
+    width:33%;
+
+    background-color:#FFFBCC;
+    border:1px solid #E6DB55;
+
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius:5px;
+
+    text-align:center;
+    padding:4px;
+    font-size:12px;
+}
+
+
+.options .ok:hover
+{
+    background-color:#D5FFCE;
+    border-color:#9ADF8F;
+    color:#5B8555;
+    cursor:pointer;
+}
+
+a, a:visited
+{
+    color:#333;
+    text-decoration:none;
+}
+
+a:hover
+{
+    text-decoration:underline;
+    color:#75ab6d;
+}
+
+#throbber
+{
+    background-image:url(/media/images/welcome-throbber.gif);
+    background-position:center top;
+
+    background-repeat:no-repeat;
+    margin:0 auto;
+    text-align:center;
+    padding-top:20px;
+    width:100%;
+
+}
+
+
+
+</style>
+<script type="text/javascript">
+
+$(function(){
+   $('#first_name').focus();
+});
+
+</script>
+
+</head>
+
+<body>
+
+{% if not success %}
+
+    <div class="signup-box">
+    <h1>
+        Create an account
+    </h1>
+    <div class="instructions">
+        An account is required to save your new desktop
+    </div>
+
+    {% macro show_errors(error) -%}
+    {% if errors[error] %}
+    {% for msg in errors[error] %}
+    <ul class="error_msgs">
+        <li>{{ msg }}</li>
+    </ul>
+    {% endfor %}
+    {% endif %}
+    {% endmacro %}
+
+    {% include "front/includes/new_account_form.html" %}
+    </div>
+
+
+{% else %}
+
+    <div class="saving" style="display:none;">
+        <h1>Account Created</h1>
+        <div class="instructions">
+            Saving your desktop
+        </div>
+        <div id='throbber'>One moment...</div>
+    </div>
+
+    <div class="success">
+
+        <h1>Account Created</h1>
+        <div class="instructions">
+            Your desktop has been saved
+        </div>
+        <p>
+            Thank you for signing up!
+        </p>
+        <p>
+            Your personal desktop address is:
+        </p>
+        <pre><a href="{{ settings.SITE_URL }}{{ username }}/" target="_parent">{{ settings.SITE_URL }}{{ username }}/</a></pre>
+
+        <p>
+            Why not share this url with your friends?
+        </p>
+        <div class="options">
+            <div class="ok">OK</div>
+        </div>
+
+    </div>
+
+    <script>
+    $(function(){
+        parent.app.desktop.save(function(remote){
+            $('.saving').hide();
+            parent.app.desktop.allow_exit = true;
+
+            if(parent.new_urls=="select")
+            {
+                parent.window.location.href="{{ settings.SITE_URL }}{{ username }}/default/edit/?dialog=new-icon";
+                return false;
+            } else {
+                $('.success').show();
+            }
+            return true;
+        });
+
+        $('.options .ok').click(function(){
+            parent.window.location.href="{{ settings.SITE_URL }}{{ username }}/";
+        });
+
+
+    });
+    </script>
+
+{% endif %}
+</body>

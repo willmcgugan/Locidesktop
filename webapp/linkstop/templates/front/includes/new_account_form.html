@@ -1,0 +1,67 @@
+
+{% if settings.REQUIRE_INVITE %}
+<p>
+    <strong>Loci Desktop currently requires an invite code for new accounts.</strong>
+</p>
+{% endif %}
+
+<form class="ajax_form" action="{{ form_url }}" method="POST">
+    <fieldset>
+        <legend><span>Step 1 of 1!</span></legend>
+
+        {% if settings.REQUIRE_INVITE %}
+
+        {{ show_errors('invite') }}
+        <p>
+            <input name="invite" class="text_input" type="text" value="{{ invite }}"></input>
+            <label for="invite">Invite Code</label>
+        </p>
+    <br>
+
+        {% endif %}
+
+        {{ show_errors('first_name') }}
+        <p>
+            <input id="first_name" name="first_name" class="text_input" type="text" value="{{ first_name }}"></input>
+            <label for="first_name">First name</label>
+        </p>
+
+
+        {{ show_errors('last_name') }}
+        <p>
+            <input id="last_name" name="last_name" class="text_input" type="text" value="{{ last_name }}"></input>
+            <label for="name">Last name</label>
+        </p>
+
+        {{ show_errors('email') }}
+        <p>
+            <input id="email" name="email" class="text_input" type="text" value="{{ email }}"></input>
+            <label for="email">Your email address</label>
+        </p>
+
+    </fieldset>
+    <fieldset>
+        {{ show_errors('username') }}
+        <p>
+            <input id="username" name="username" class="text_input" type="text" value="{{ username }}"></input>
+            <label for="username">Desired username</label>
+        </p>
+
+        {{ show_errors('password') }}
+        <p>
+            <input id="password" name="password" class="text_input" type="password" value="{{ password }}"></input>
+            <label for="password">Password</label>
+        </p>
+
+        {{ show_errors('password_check') }}
+        <p>
+            <input id="password_check" name="password_check" class="text_input" type="password" value="{{ password_check }}"></input>
+            <label for="password_check">Confirm password</label>
+        </p>
+
+        <input type="hidden" name="next" value="{{ next }}"></input>
+    </fieldset>
+
+    <input type="submit" size="16" id="send" class="button" value="Create Account" name="Send"/>
+
+</form>

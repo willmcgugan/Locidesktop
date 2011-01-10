@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+
+</head>
+<body>
+<style type="text/css">
+#topurls a, #topurls a:active
+{
+    text-decoration:none;
+}
+
+#topurls a:visited
+{
+    text-decoration:line-through;
+}
+
+</style>
+
+<p>You have visited the following urls:</p>
+<ul id="visited_urls">
+
+</ul>
+
+
+{% if not settings.DEBUG %}
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js" type="text/javascript"></script>
+{% else %}
+<script src="{{ settings.MEDIA_URL }}js/jquery-1.3.2.min.js" type="text/javascript"></script>
+{% endif %}
+
+<script src="{{ settings.MEDIA_URL }}js/desktop_common.js?{{ settings.CACHE_BUSTER }}" type="text/javascript"></script>
+<script src="{{ settings.MEDIA_URL }}js/visited.js?{{ settings.CACHE_BUSTER }}" type="text/javascript"></script>
+</body>
